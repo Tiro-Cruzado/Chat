@@ -16,6 +16,18 @@ class UsersRepository implements IUsersRepository {
 
     return UsersRepository.INSTANCE;
   }
+
+  public addUser(user: User){
+    if(user.id &&  this.getUser(user.id)){
+      throw new Error("User already exists");
+    }
+
+    this.users.push(user);
+  }
+
+  public getUser(userId: string){
+    return this.users.find(({id}) => userId === id);
+  }
 }
 
 export { UsersRepository };
