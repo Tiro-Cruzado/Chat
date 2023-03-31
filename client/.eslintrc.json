@@ -82,7 +82,12 @@
                 ]
             }
         ],
-        "prettier/prettier": "error",
+        "prettier/prettier": [
+            "error",
+            {
+              "endOfLine": "auto"
+            }
+          ],
         "react/jsx-filename-extension": [
             1,
             {
