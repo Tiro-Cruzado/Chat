@@ -4,7 +4,7 @@ import { IUsersAvatarService } from "./IUserAvatarService";
 
 abstract class AbstractUserAvatarService implements IUsersAvatarService {
 
-  protected abstract getUserAvatarEspecificStyle(userName: string, styleName: string): Promise<string | null>; 
+  public abstract getUserAvatarEspecificStyle(userName: string, styleName: string): Promise<string | null>; 
     
   public getUserAvatar(userName: string): Promise<string | null> {
 

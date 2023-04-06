@@ -4,9 +4,11 @@ import { AbstractUserAvatarService } from "../AbstractUserAvatarService";
 
 class UserAvatarServiceDicebear extends AbstractUserAvatarService {
 
+  private static INSTANCE: UserAvatarServiceDicebear;
+
   private axiosInstance: AxiosInstance;
 
-  constructor(){
+  private constructor(){
     super();
 
     this.axiosInstance = axios.create({
@@ -14,7 +16,14 @@ class UserAvatarServiceDicebear extends AbstractUserAvatarService {
     })
   }
 
-  protected getUserAvatarEspecificStyle(userName: string, styleName: string): Promise<string | null> {
+  public static getInstance(): UserAvatarServiceDicebear {
+    if(!UserAvatarServiceDicebear.INSTANCE){
+      UserAvatarServiceDicebear.INSTANCE = new UserAvatarServiceDicebear();
+    }
+    return UserAvatarServiceDicebear.INSTANCE;
+  }
+
+  public getUserAvatarEspecificStyle(userName: string, styleName: string): Promise<string | null> {
         
     return this.axiosInstance.get(`/${styleName}/svg?seed=${userName}`)
       .then(response => response.data as string)
