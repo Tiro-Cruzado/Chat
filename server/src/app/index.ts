@@ -3,11 +3,11 @@ import mainRouter from "./routes";
 import cors from "cors";
 
 const app = express();
-app.use("/", mainRouter);
 
-const useCors: boolean = process.env.ENABLE_CORS === "true";
-
+const useCors: boolean = process.env.ENABLE_CORS == "true";
 if(useCors)
   app.use(cors());
+
+app.use("/", mainRouter);
 
 export default app;
