@@ -1,7 +1,7 @@
 
-interface IUsersAvatarService {
+interface IUserAvatarService {
 
   getUserAvatar: (userName: string) => Promise<string | null>;
 }
 
-export { IUsersAvatarService };
+export { IUserAvatarService };
