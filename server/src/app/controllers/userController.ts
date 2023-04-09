@@ -4,20 +4,23 @@ import { IUserAvatarService } from "../../service/IUserAvatarService";
 
 
 export const generateUserAvatar = async (req: Request, res: Response) => {
-    const userAvatarService: IUserAvatarService = createUserAvatarService();
+  const userAvatarService: IUserAvatarService = createUserAvatarService();
 
-    try{
-        const name = req.query.name as string;
-        const avatarImage = await userAvatarService.getUserAvatar(name);
-
-        if(avatarImage){
-            res.type("image/svg+xml").send(avatarImage);
-        } else {
-            res.sendStatus(400);
-        }
-        
-        
-    } catch (err) {
-        res.status(500).send(err);
+  try{
+    const name = req.query.name as string;
+    if(!name || name === ""){
+      res.sendStatus(400);
     }
+
+    const avatarImage = await userAvatarService.getUserAvatar(name);
+
+    if(avatarImage){
+      res.type("image/svg+xml").send(avatarImage);
+    } else {
+      res.sendStatus(400);
+    }
+                
+  } catch (err) {
+    res.status(500).send(err);
+  }
 }

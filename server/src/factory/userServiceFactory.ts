@@ -4,7 +4,7 @@ import { IUserAvatarService } from "../service/IUserAvatarService";
 
 
 export default (): IUserAvatarService => {
-    return UserAvatarServiceWithCaching.getInstance(
-        UserAvatarServiceDicebear.getInstance()
-    );
+  return UserAvatarServiceWithCaching.getInstance(
+    UserAvatarServiceDicebear.getInstance()
+  );
 }
