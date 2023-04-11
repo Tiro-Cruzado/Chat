@@ -14,11 +14,3 @@ const IconButton = ({ disabled, onClick }: iconButtonProps) => {
   )
 }
 export default IconButton
-
-/* 
-JS = linguagem de tipágem fraca 
-Props do Button 
-1. Disable 
-2. Onclick 
-3. title
-*/
