@@ -1,9 +1,12 @@
+// import Avatar from './components/Avatar'
+import Avatar from './components/Avatar'
+
 function App() {
   return (
-   <>
-    <h1>New World!</h1>
-   </>
-  );
+    <>
+      <Avatar size="md" isRound={true} />
+    </>
+  )
 }
 
-export default App;
+export default App
