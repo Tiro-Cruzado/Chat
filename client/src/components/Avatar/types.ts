@@ -10,7 +10,7 @@ type AvatarProps = {
   /**
    * Também será possível definir o status do Avatar
    */
-  status?: string
+  status?: 'online' | 'away' | 'offline' | undefined
 
   /**
    * O avatar a ser passado será exibido dinaminacamente através de uma URL
@@ -23,11 +23,22 @@ type SizeStyles = Record<
   RequiredAvatarProps['size'],
   FlattenSimpleInterpolation
 >
+type StylesStatus = Record<
+  RequiredAvatarProps['status'],
+  FlattenSimpleInterpolation
+>
 
 type WrapperProps = {
   size: RequiredAvatarProps['size']
   status?: string
   isRound: boolean
+  src?: string
 }
 
-export type { AvatarProps, SizeStyles, RequiredAvatarProps, WrapperProps }
+export type {
+  AvatarProps,
+  SizeStyles,
+  RequiredAvatarProps,
+  WrapperProps,
+  StylesStatus,
+}
