@@ -3,14 +3,14 @@ type AvatarProps = {
   // O componente irá receber uma propriedade de arredondamento
   isRound?: boolean
 
-  /* O componente irá receber uma propriedade de tamanho,
-  que poderá variar entre Samll e Medium */
+  /* Poderá ser passado uma propriedade de tamanho,
+  que fará variar entre Samll e Medium */
   size?: 'sm' | 'md'
 
   /**
    * Também será possível definir o status do Avatar
    */
-  status?: 'online' | 'away' | 'offline' | undefined
+  status?: 'online' | 'away' | 'offline' | ''
 
   /**
    * O avatar a ser passado será exibido dinaminacamente através de uma URL
@@ -30,9 +30,12 @@ type StylesStatus = Record<
 
 type WrapperProps = {
   size: RequiredAvatarProps['size']
-  status?: string
   isRound: boolean
   src?: string
+}
+
+type BadgeStatusProps = {
+  status: RequiredAvatarProps['status']
 }
 
 export type {
@@ -41,4 +44,5 @@ export type {
   RequiredAvatarProps,
   WrapperProps,
   StylesStatus,
+  BadgeStatusProps,
 }

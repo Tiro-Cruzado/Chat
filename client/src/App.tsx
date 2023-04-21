@@ -4,7 +4,7 @@ import Avatar from './components/Avatar'
 function App() {
   return (
     <>
-      <Avatar size="sm" />
+      <Avatar size="sm" status="offline" isRound={true} />
     </>
   )
 }

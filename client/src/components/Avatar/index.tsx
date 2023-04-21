@@ -5,17 +5,24 @@ import { lorelei } from '@dicebear/collection'
 import { createAvatar } from '@dicebear/core'
 import { useMemo } from 'react'
 
-const Avatar = ({ size = 'md', isRound = false, src }: AvatarProps) => {
-  const avatar = useMemo(() => {
+const Avatar = ({
+  size = 'md',
+  isRound = false,
+  src = '',
+  status = '',
+}: AvatarProps) => {
+  src = useMemo(() => {
     return createAvatar(lorelei, {
-      size: 90,
+      size: 80,
     }).toDataUriSync()
   }, [])
   return (
-    <S.Wrapper size={size} isRound={isRound} src="">
-      <S.BadgeStatus />
-      <img sizes="24" src={avatar} alt="" />
-    </S.Wrapper>
+    <>
+      <S.Wrapper size={size} isRound={isRound} src="">
+        <img sizes="24" src={src} alt="" />
+      </S.Wrapper>
+      <S.BadgeStatus status={status} />
+    </>
   )
 }
 
