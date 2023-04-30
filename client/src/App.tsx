@@ -1,7 +1,9 @@
+import { Modal } from './components/Modal'
+
 function App() {
   return (
     <>
-      <h1>New World!</h1>
+      <Modal />
     </>
   )
 }
