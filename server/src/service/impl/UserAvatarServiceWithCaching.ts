@@ -2,7 +2,6 @@ import NodeCache, { Key } from "node-cache";
 import { AVATAR_CACHE_CONFIG } from "../../constants";
 import { AbstractUserAvatarService } from "../AbstractUserAvatarService";
 
-
 class UserAvatarServiceWithCaching extends AbstractUserAvatarService {
 
   private static INSTANCE: UserAvatarServiceWithCaching;

@@ -1,10 +1,10 @@
 import dotenv from "dotenv";
+
 dotenv.config();
 
 import http from "node:http";
 import { Server } from "socket.io";
 import app from "./app";
-
 
 const APP_PORT = process.env.APP_PORT || 3000;
 

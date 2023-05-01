@@ -2,25 +2,34 @@ import { Request, Response } from "express";
 import { createUserAvatarService } from "../../factory";
 import { IUserAvatarService } from "../../service/IUserAvatarService";
 
+interface IGenerateUserAvatarRequest extends Request {
+  query: {
+    name: string
+  }
+}
 
-export const generateUserAvatar = async (req: Request, res: Response) => {
+export const generateUserAvatar = async (
+  request: IGenerateUserAvatarRequest, 
+  response: Response,
+) => {
   const userAvatarService: IUserAvatarService = createUserAvatarService();
 
-  try{
-    const name = req.query.name as string;
-    if(!name || name === ""){
-      res.sendStatus(400);
+  try {
+    const { name } = request.query;
+
+    if (!name || name === "") {
+      return response.status(400).json({msg: "Missing required parameter 'name'"});
     }
 
     const avatarImage = await userAvatarService.getUserAvatar(name);
 
-    if(avatarImage){
-      res.type("image/svg+xml").send(avatarImage);
+    if (avatarImage) {
+      return response.type("image/svg+xml").send(avatarImage);
     } else {
-      res.sendStatus(400);
+      return response.status(400).json({msg: "The 'name' parameter is not valid"});
     }
                 
   } catch (err) {
-    res.status(500).send(err);
+    return response.status(500).send(err);
   }
 }

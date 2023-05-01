@@ -1,5 +1,3 @@
-
-
 export const DICEBEAR_STYLE_OPTIONS = [
   "adventurer",
   "avataaars",
@@ -11,7 +9,6 @@ export const DICEBEAR_STYLE_OPTIONS = [
   "personas",
   "pixel-art"
 ];
-
 
 type AvatarCacheConfig = {
   maxKeys: number;

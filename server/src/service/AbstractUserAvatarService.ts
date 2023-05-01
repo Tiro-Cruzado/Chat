@@ -1,7 +1,6 @@
 import { DICEBEAR_STYLE_OPTIONS } from "../constants";
 import { IUserAvatarService } from "./IUserAvatarService";
 
-
 abstract class AbstractUserAvatarService implements IUserAvatarService {
 
   public abstract getUserAvatarEspecificStyle(userName: string, styleName: string): Promise<string | null>; 
@@ -12,9 +11,7 @@ abstract class AbstractUserAvatarService implements IUserAvatarService {
     return this.getUserAvatarEspecificStyle(userName, DICEBEAR_STYLE_OPTIONS[stylePosition]);
   };
 
-
-  private randomPosition = (size: number): number => Math.floor(Math.random() * size-1);
+  private randomPosition = (size: number): number => Math.floor(Math.random() * (size-1));
 }
-
 
 export { AbstractUserAvatarService }
