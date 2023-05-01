@@ -18,7 +18,7 @@ export const generateUserAvatar = async (
     const { name } = request.query;
 
     if (!name || name === "") {
-      return response.status(400).json({msg: "Missing required parameter 'name'"});
+      return response.status(400).json({error: "Missing required parameter 'name'"});
     }
 
     const avatarImage = await userAvatarService.getUserAvatar(name);
@@ -26,7 +26,7 @@ export const generateUserAvatar = async (
     if (avatarImage) {
       return response.type("image/svg+xml").send(avatarImage);
     } else {
-      return response.status(400).json({msg: "The 'name' parameter is not valid"});
+      return response.status(400).json({error: "The 'name' parameter is not valid"});
     }
                 
   } catch (err) {
