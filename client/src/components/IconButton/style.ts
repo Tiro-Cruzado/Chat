@@ -2,13 +2,14 @@ import styled from 'styled-components'
 
 export const Container = styled.button`
   background-color: #8c53d6;
+
   border: none;
   border-radius: 60px;
-  line-height: 0;
-  padding: 9px;
+
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 9px;
 
   :hover {
     cursor: pointer;

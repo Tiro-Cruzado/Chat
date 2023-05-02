@@ -6,6 +6,7 @@ type iconButtonProps = {
   disabled?: boolean
   onClick: () => void
 }
+
 const IconButton = ({ disabled, onClick }: iconButtonProps) => {
   return (
     <S.Container disabled={disabled} onClick={onClick}>
@@ -13,4 +14,5 @@ const IconButton = ({ disabled, onClick }: iconButtonProps) => {
     </S.Container>
   )
 }
+
 export default IconButton
