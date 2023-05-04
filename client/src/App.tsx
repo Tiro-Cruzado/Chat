@@ -1,7 +1,15 @@
+import { ThemeProvider } from 'styled-components'
+import { defaultTheme } from './themes/default'
+import { Text } from './components/Text/style'
+
 function App() {
   return (
     <>
-      <h1>New World!</h1>
+      <ThemeProvider theme={defaultTheme}>
+        <Text fontSize="large" color="dark-gray" as={'h1'}>
+          Olá mundo
+        </Text>
+      </ThemeProvider>
     </>
   )
 }
