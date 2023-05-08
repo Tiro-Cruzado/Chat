@@ -1,25 +1,12 @@
-import styled from 'styled-components'
+import styled, { DefaultTheme } from 'styled-components'
 
-const FONT_SIZE = {
-  'x-small': '8px',
-  small: '12px',
-  medium: '18px',
-  large: '24px',
-} as const
-
-const COLOR = {
-  white: '#FFFFFF',
-  gray: '#B9B6BE',
-  'dark-gray': '#AAAAAA',
-  'dark-purple': '#574969',
-} as const
-
-export type FontStyleProps = {
-  fontSize: keyof typeof FONT_SIZE
-  color: keyof typeof COLOR
+type FontStyleProps = {
+  fontSize: keyof DefaultTheme['typography']['fontSizes']
+  color: keyof DefaultTheme['colors']
 }
 
 export const Text = styled.div<FontStyleProps>`
-  font-size: ${({ fontSize }) => fontSize};
-  color: ${({ color }) => color};
+  font-size: ${({ theme, fontSize }) => theme.typography.fontSizes[fontSize]};
+  color: ${({ theme, color }) => theme.colors[color]};
+  font-family: 'Inter', sans-serif;
 `

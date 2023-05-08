@@ -1,5 +1,5 @@
 import { ThemeProvider } from 'styled-components'
-import { defaultTheme } from './themes/default'
+import { defaultTheme } from './styles/themes/default'
 
 function App() {
   return (
