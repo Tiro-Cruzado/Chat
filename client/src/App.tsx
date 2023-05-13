@@ -13,7 +13,9 @@ function App() {
           quas iusto?
         </Card>
       </Modal> */}
-      <BottonSheet />
+      <BottonSheet head={<p>E ai tia valquíria com está??</p>}>
+        <p>Olá amigos?</p>
+      </BottonSheet>
     </>
   )
 }
