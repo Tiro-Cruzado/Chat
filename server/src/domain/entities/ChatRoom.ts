@@ -1,20 +1,34 @@
 import { v4 as uuidV4 } from "uuid";
 
 import { ChatMessage } from "./ChatMessage";
-import { User } from "./User";
 
 class ChatRoom {
   id: string;
   name: string;
-  user: User[];
+  users: string[];
   messages: ChatMessage[];
-  creationDate: Date = new Date();
+  createdAt: Date;
 
-  constructor(name: string, id?: string) {
+  constructor(name: string, users: string[] = [], id?: string) {
     this.id = id || uuidV4();
     this.name = name;
-    this.user = [];
+    this.users = users || [];
     this.messages = [];
+    this.createdAt = new Date()
+  }
+
+  isUserInTheRoom(userId: string) {
+    return this.users.some((userIdInRoom) => userIdInRoom === userId)
+  }
+
+  addMessage(message: ChatMessage) {
+    this.messages.push(message)
+  }
+
+  addUser(userId: string) {
+    if (!this.isUserInTheRoom(userId)) {
+      this.users.push(userId)
+    }
   }
 }
 

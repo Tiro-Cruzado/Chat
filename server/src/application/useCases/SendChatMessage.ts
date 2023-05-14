@@ -1,23 +1,31 @@
+import { ChatMessage } from "../../domain/entities/ChatMessage";
+import { IChatRoomRepository } from "../../infrasctructure/repositories/IChatRoomRepository";
+
 class SendChatMessage {
-  constructor(chatRoomRepository) {
+  chatRoomRepository: IChatRoomRepository;
+
+  constructor(chatRoomRepository: IChatRoomRepository) {
     this.chatRoomRepository = chatRoomRepository
   }
 
-  async execute(chatRoomId, userId, message) {
-    const chatRoom = await this.chatRoomRepository.findById(chatRoomId);
-    const user = chatRoom.findUserById(userId);
+  async execute(chatRoomId: string, userId: string, message: string) {
+    const chatRoomFound = this.chatRoomRepository.findById(chatRoomId);
 
-    if (!user) {
+    if (!chatRoomFound) {
+      throw new Error('Chat room not found');
+    }
+
+    const isUserInTheRoom = chatRoomFound.isUserInTheRoom(userId);
+
+    if (!isUserInTheRoom) {
       throw new Error('User not found in the chat room');
     }
 
-    const newMessage = {
-      user: userId,
-      text: message,
-      timestamp: new Date().toISOString()
-    };
+    const newMessage = new ChatMessage(userId, message)
+    chatRoomFound.addMessage(newMessage);
 
-    chatRoom.addMessage(newMessage);
-    await this.chatRoomRepository.save(chatRoom);
+    this.chatRoomRepository.save(chatRoomFound);
   }
 }
+
+export { SendChatMessage };
