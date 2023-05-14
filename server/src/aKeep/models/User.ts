@@ -4,8 +4,9 @@ class User {
   id?: string;
   name: string;
 
-  constructor() {
-    !this.id && (this.id = uuidV4());
+  constructor(name: string, id?: string) {
+    this.id = id || uuidV4();
+    this.name = name
   }
 }
 
