@@ -1,18 +1,16 @@
 import { useState } from 'react'
-import * as S from './styles'
+import * as S from './styles.BottomSheet'
 
 import { X } from '@phosphor-icons/react'
 import { BottomSheetProps } from './types.BottomSheet'
 
-const BottonSheet = ({ head, children, isOpen }: BottomSheetProps) => {
+const BottonSheet = ({ head, children, toClose }: BottomSheetProps) => {
   const [isOpenBottom, setisOpenBottom] = useState(false)
   const toogleisOpenBottom = () => setisOpenBottom(!isOpenBottom)
 
   return (
     <S.ContainerWrapper>
-      <S.OpenBotton onClick={toogleisOpenBottom}>
-        Abrir BottomSheet
-      </S.OpenBotton>
+      <S.OpenBotton onClick={toClose}>Abrir</S.OpenBotton>
 
       <S.ContainerBottomSheet isOpen={isOpenBottom}>
         <S.BottonSheet>

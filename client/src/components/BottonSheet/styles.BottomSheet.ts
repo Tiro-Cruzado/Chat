@@ -22,40 +22,47 @@ const Head = styled.h1`
   /* display: flex; */
   justify-content: space-between;
 
+  font-family: Inter;
   font-size: 36px;
   width: 100%;
-  padding: 0 32px 0 32px;
+  padding: 32px;
   box-sizing: border-box;
 `
 
 const ContainerBottomSheet = styled.div<ContainerBottomSheetProps>`
   ${({ isOpen }) => css`
     position: fixed;
-    background-color: aqua;
+    background: rgba(60, 51, 72, 0.8);
+    backdrop-filter: blur(2px);
     width: 100%;
     height: 100%;
 
     display: flex;
     justify-content: center;
     z-index: 10;
-    ${isOpen === true ? 'flex' : 'none'}
+    display: ${isOpen === true ? 'flex' : 'none'};
   `}
 `
 
 const BottonSheet = styled.div`
   position: fixed;
-  width: 500px;
-  height: 65vh;
+  width: 400px;
+  max-height: 65vh;
   bottom: 0;
 
-  background-color: gray;
+  background-color: white;
   border-radius: 16px 16px 0px 0px;
+  z-index: 110;
   /* overflow: auto; */
 `
 const ContentBottomSheet = styled.div`
-  display: flex;
   padding: 0 32px 0 32px;
-  /* justify-content: center; */
+  max-height: 400px;
+  overflow: auto;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 `
 
 const ContainerWrapper = styled.h1`

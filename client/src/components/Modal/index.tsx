@@ -1,9 +1,9 @@
-import { ModalProps } from './types'
+import { ModalProps } from './types.Modal'
 import { useState } from 'react'
 
 import { X } from '@phosphor-icons/react'
 
-import * as S from './styles'
+import * as S from './styles.Modal'
 
 const Modal = ({ children, head }: ModalProps) => {
   const [modalIsOpen, setOpen] = useState<boolean>(false)
