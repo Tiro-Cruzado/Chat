@@ -18,15 +18,17 @@ const HeadButton = styled.h1`
   font-size: 36px;
   height: 50px;
 `
-const Head = styled.h1`
-  /* display: flex; */
-  justify-content: space-between;
 
-  font-family: Inter;
-  font-size: 36px;
+const Head = styled.h1`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
+
   padding: 32px;
   box-sizing: border-box;
+  font-size: 36px;
+  font-family: Inter;
 `
 
 const ContainerBottomSheet = styled.div<ContainerBottomSheetProps>`
@@ -34,6 +36,7 @@ const ContainerBottomSheet = styled.div<ContainerBottomSheetProps>`
     position: fixed;
     background: rgba(60, 51, 72, 0.8);
     backdrop-filter: blur(2px);
+
     width: 100%;
     height: 100%;
 
@@ -47,7 +50,8 @@ const ContainerBottomSheet = styled.div<ContainerBottomSheetProps>`
 const BottonSheet = styled.div`
   position: fixed;
   width: 400px;
-  max-height: 65vh;
+  max-height: 75vh;
+  min-height: 50vh;
   bottom: 0;
 
   background-color: white;

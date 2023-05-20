@@ -1,19 +1,9 @@
-import { BottonSheet } from './components/BottonSheet'
-// import { Card } from './components/Card'
-// import { Modal } from './components/Modal'
+import { BottomSheet } from './components/BottomSheet'
 
 function App() {
   return (
     <>
-      {/* <Modal>
-        <Card>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Repellat
-          tenetur minus rerum est atque voluptates amet asperiores mollitia,
-          inventore expedita eius? Ea odio sed fugiat aliquid repellendus at
-          quas iusto?
-        </Card>
-      </Modal> */}
-      <BottonSheet
+      <BottomSheet
         head={
           <div>
             <p style={{ fontSize: '16px' }}>E ai tia valquíria com está??</p>
@@ -34,10 +24,7 @@ function App() {
         <p style={{ fontSize: '18px' }}>Olá amigos?</p>
         <p style={{ fontSize: '18px' }}>Olá amigos?</p>
         <p style={{ fontSize: '18px' }}>Olá amigos?</p>
-        <p style={{ fontSize: '18px' }}>Olá amigos?</p>
-        <p style={{ fontSize: '18px' }}>Olá amigos?</p>
-        <p style={{ fontSize: '18px' }}>Olá amigos?</p>
-      </BottonSheet>
+      </BottomSheet>
     </>
   )
 }

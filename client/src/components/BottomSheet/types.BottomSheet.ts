@@ -19,19 +19,19 @@ type BottomSheetProps = {
   /**
    *
    */
-  toClose?: () => void
+  onDimiss?: () => void
 }
 
 type ContainerBottomSheetProps = {
   isOpen: boolean
 }
 
-type ContainerWrapperProps = {
-  isOpem: boolean
-}
+// type ContainerWrapperProps = {
+//   isOpem: boolean
+// }
 
 export type {
   BottomSheetProps,
   ContainerBottomSheetProps,
-  ContainerWrapperProps,
+  // ContainerWrapperProps,
 }
