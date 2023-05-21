@@ -57,8 +57,8 @@ const BottonSheet = styled.div`
   background-color: white;
   border-radius: 16px 16px 0px 0px;
   z-index: 110;
-  /* overflow: auto; */
 `
+
 const ContentBottomSheet = styled.div`
   padding: 0 32px 0 32px;
   max-height: 400px;
