@@ -1,4 +1,4 @@
-import { User } from "../models/User";
+import { User } from "../../domain/entities/User";
 
 interface IUsersRepository {
     addUser: (user: User) => void;

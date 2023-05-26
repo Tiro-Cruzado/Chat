@@ -1,4 +1,4 @@
-import { User } from "../../models/User";
+import { User } from "../../../domain/entities/User";
 import { IUsersRepository } from "../IUsersRepository";
 
 class UsersRepository implements IUsersRepository {
