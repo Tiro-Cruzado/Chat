@@ -1,1 +1,1 @@
-export { default as createUserAvatarService } from "./userServiceFactory";
+export { default as createGenerateUserAvatarUseCase } from "./generateUserAvatarUseCaseFactory";

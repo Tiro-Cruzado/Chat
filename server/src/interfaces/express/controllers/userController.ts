@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import { createUserAvatarService } from "../../../application/factory";
-import { IUserAvatarService } from "../../../application/service/IUserAvatarService";
+import { createGenerateUserAvatarUseCase } from "../../../application/factory";
+import { IGenerateUserAvatar } from "../../../application/useCases/userAvatar/IGenerateUserAvatar";
 
 interface IGenerateUserAvatarRequest extends Request {
   query: {
@@ -12,7 +12,7 @@ export const generateUserAvatar = async (
   request: IGenerateUserAvatarRequest,
   response: Response
 ) => {
-  const userAvatarService: IUserAvatarService = createUserAvatarService();
+  const gernerateUserAvatar: IGenerateUserAvatar = createGenerateUserAvatarUseCase();
 
   try {
     const { name } = request.query;
@@ -23,7 +23,7 @@ export const generateUserAvatar = async (
         .json({ error: "Missing required parameter 'name'" });
     }
 
-    const avatarImage = await userAvatarService.getUserAvatar(name);
+    const avatarImage = await gernerateUserAvatar.execute(name);
 
     if (avatarImage) {
       return response.type("image/svg+xml").send(avatarImage);
