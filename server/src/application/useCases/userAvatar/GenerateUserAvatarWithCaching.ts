@@ -18,14 +18,13 @@ class GenerateUserAvatarWithCaching extends AbstractGenerateUserAvatar {
     generateUserAvatar: AbstractGenerateUserAvatar
   ): GenerateUserAvatarWithCaching {
     if (!GenerateUserAvatarWithCaching.INSTANCE) {
-      GenerateUserAvatarWithCaching.INSTANCE = new GenerateUserAvatarWithCaching(
-        generateUserAvatar
-      );
+      GenerateUserAvatarWithCaching.INSTANCE =
+        new GenerateUserAvatarWithCaching(generateUserAvatar);
     }
     return GenerateUserAvatarWithCaching.INSTANCE;
   }
 
-  public async getUserAvatarEspecificStyle(
+  public async executeSpecificStyle(
     userName: string,
     styleName: string
   ): Promise<string | null> {
@@ -36,7 +35,7 @@ class GenerateUserAvatarWithCaching extends AbstractGenerateUserAvatar {
       return Promise.resolve(avatarFromCache);
     }
 
-    const avatar = await this.realUseCase.getUserAvatarEspecificStyle(
+    const avatar = await this.realUseCase.executeSpecificStyle(
       userName,
       styleName
     );

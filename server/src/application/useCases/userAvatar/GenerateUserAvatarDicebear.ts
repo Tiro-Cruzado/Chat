@@ -21,7 +21,7 @@ class GenerateUserAvatarDicebear extends AbstractGenerateUserAvatar {
     return GenerateUserAvatarDicebear.INSTANCE;
   }
 
-  public getUserAvatarEspecificStyle = (
+  public executeSpecificStyle = (
     userName: string,
     styleName: string
   ): Promise<string | null> =>

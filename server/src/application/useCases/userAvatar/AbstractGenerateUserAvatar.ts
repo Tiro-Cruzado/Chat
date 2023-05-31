@@ -2,14 +2,14 @@ import { DICEBEAR_STYLE_OPTIONS } from "../../constants";
 import { IGenerateUserAvatar } from "./IGenerateUserAvatar";
 
 abstract class AbstractGenerateUserAvatar implements IGenerateUserAvatar {
-  public abstract getUserAvatarEspecificStyle(
+  public abstract executeSpecificStyle(
     userName: string,
     styleName: string
   ): Promise<string | null>;
 
   public execute(userName: string): Promise<string | null> {
     const stylePosition = this.randomPosition(DICEBEAR_STYLE_OPTIONS.length);
-    return this.getUserAvatarEspecificStyle(
+    return this.executeSpecificStyle(
       userName,
       DICEBEAR_STYLE_OPTIONS[stylePosition]
     );
