@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-
     "@dicebear/collection": "^6.0.2",
     "@dicebear/core": "^6.0.2",
     "@phosphor-icons/react": "^2.0.9",
