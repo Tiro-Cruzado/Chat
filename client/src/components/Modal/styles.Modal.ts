@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components'
-import { ContainerModalProps } from './types'
+import { ContainerModalProps } from './types.Modal'
 
 const ContainerWrapper = styled.div`
   display: flex;

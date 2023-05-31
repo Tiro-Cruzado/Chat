@@ -1,27 +1,19 @@
-import { ModalProps } from './types'
-import { useState } from 'react'
+import { ModalProps } from './types.Modal'
 
 import { X } from '@phosphor-icons/react'
 
-import * as S from './styles'
+import * as S from './styles.Modal'
 
-const Modal = ({ children, head }: ModalProps) => {
-  const [modalIsOpen, setOpen] = useState<boolean>(false)
-  const toogleIsOpen = () => setOpen(!modalIsOpen)
-
+const Modal = ({ children, head, onDimiss, isOpen = false }: ModalProps) => {
   return (
     <>
       <S.ContainerWrapper>
-        <S.ButtonOpenModal onClick={toogleIsOpen}>
-          Abrir Modal
-        </S.ButtonOpenModal>
-
-        <S.ContainerModal isOpen={modalIsOpen}>
+        <S.ContainerModal isOpen={isOpen}>
           <S.Modal>
             <S.ContainerHeader>
               <S.HeaderModal>
                 {head}
-                <S.ButtonCloseModal onClick={toogleIsOpen}>
+                <S.ButtonCloseModal onClick={onDimiss}>
                   <X size={18} color="rgba(87, 73, 105, 0.6)" weight="bold" />
                 </S.ButtonCloseModal>
               </S.HeaderModal>
