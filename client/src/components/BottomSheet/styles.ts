@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components'
 
-import { ContainerBottomSheetProps } from './types.BottomSheet'
+import { ContainerBottomSheetProps } from './types'
 
 const OpenBotton = styled('button')`
   height: 20px;

@@ -4,11 +4,7 @@ import { X } from '@phosphor-icons/react'
 
 import * as S from './styles.Modal'
 
-const Modal = ({ children,
-  head,
-  onDimiss,
-  isOpen
-}: ModalProps) => {
+const Modal = ({ children, head, onDimiss, isOpen }: ModalProps) => {
   return (
     <>
       <S.ContainerWrapper>
