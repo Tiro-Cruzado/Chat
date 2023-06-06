@@ -1,12 +1,12 @@
 import { ThemeProvider } from 'styled-components'
 import { defaultTheme } from './styles/themes/default'
-import { Input } from './components/Input'
+import { GlobalStyle } from './styles/themes/global'
 
 function App() {
   return (
     <>
       <ThemeProvider theme={defaultTheme}>
-        <Input placeholder="Digite seu nome de usuário" />
+        <GlobalStyle />
       </ThemeProvider>
     </>
   )
