@@ -1,22 +1,17 @@
 import { createBrowserRouter } from 'react-router-dom'
+
 import { Registration } from '../pages/Registration'
 import { Room } from '../pages/Room'
-import App from '../App'
+// import { HomePage } from '../pages/HomePage/Home'
 
 const routes = createBrowserRouter([
   {
     path: '/',
-    element: <App />,
-    children: [
-      {
-        path: '/room',
-        element: <Room />,
-      },
-      {
-        path: '/registration',
-        element: <Registration />,
-      },
-    ],
+    element: <Registration />,
+  },
+  {
+    path: '/room',
+    element: <Room />,
   },
 ])
 
