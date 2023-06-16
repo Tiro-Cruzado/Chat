@@ -1,6 +1,6 @@
 import React from 'react'
 import * as S from './style'
-import Avatar from '../../assets/avatar.svg'
+import Avatar from '../Avatar/index'
 
 const UserName = 'Christian'
 
@@ -8,7 +8,7 @@ const ProfileInfo = () => {
   return (
     <S.Wrapper>
       <S.UserName>{UserName}</S.UserName>
-      <S.Avatar src={Avatar} alt="Avatar" />
+      <div>{<Avatar size="sm" />}</div>
     </S.Wrapper>
   )
 }
