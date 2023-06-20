@@ -1,7 +1,7 @@
-import * as S from './styles.BottomSheet'
+import * as S from './styles'
 
 import { X } from '@phosphor-icons/react'
-import { BottomSheetProps } from './types.BottomSheet'
+import { BottomSheetProps } from './types'
 
 const BottomSheet = ({
   head,
