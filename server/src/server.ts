@@ -1,19 +1,18 @@
 import dotenv from "dotenv";
+import http from "node:http";
+
+import createApp from "./interfaces/express";
+import { createChatSocket } from "./interfaces/socketio";
 
 dotenv.config();
 
-import http from "node:http";
-import { Server } from "socket.io";
-import app from "./app";
-
 const APP_PORT = process.env.APP_PORT || 3000;
 
+const app = createApp();
 const httpServer = http.createServer(app);
-const io = new Server(httpServer);
+const chatSocket = createChatSocket(httpServer);
 
-io.on("connection", (socket) => {
-  console.log("someone has connected");
-});
+chatSocket.init()
 
 httpServer.listen(APP_PORT, () => {
   console.log(`Listening on port: ${APP_PORT}`);
