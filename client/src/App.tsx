@@ -3,6 +3,7 @@ import { routes } from './router'
 import { ThemeProvider } from 'styled-components'
 import { defaultTheme } from './styles/themes/default'
 import { GlobalStyle } from './styles/themes/global'
+import { BigAvatar } from './components/BigAvatar'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <ThemeProvider theme={defaultTheme}>
         <RouterProvider router={routes} />
         <GlobalStyle />
+        <BigAvatar />
       </ThemeProvider>
     </>
   )
