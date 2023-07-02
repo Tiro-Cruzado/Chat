@@ -3,6 +3,7 @@ import { v4 as uuidV4 } from "uuid";
 class User {
   id: string;
   name: string;
+  image: string;
 
   constructor(id?: string) {
     this.id = id || uuidV4();

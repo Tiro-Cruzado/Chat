@@ -1,5 +1,8 @@
 import { Request, Response } from "express";
-import { createGenerateUserAvatarUseCase } from "../../../application/factory";
+import {
+  createGenerateUserAvatarUseCase,
+  createUserUseCase,
+} from "../../../application/factory";
 import { IGenerateUserAvatar } from "../../../application/useCases/userAvatar/IGenerateUserAvatar";
 
 interface IGenerateUserAvatarRequest extends Request {
@@ -12,7 +15,8 @@ export const generateUserAvatar = async (
   request: IGenerateUserAvatarRequest,
   response: Response
 ) => {
-  const gernerateUserAvatar: IGenerateUserAvatar = createGenerateUserAvatarUseCase();
+  const gernerateUserAvatar: IGenerateUserAvatar =
+    createGenerateUserAvatarUseCase();
 
   try {
     const { name } = request.query;
@@ -35,4 +39,32 @@ export const generateUserAvatar = async (
   } catch (err) {
     return response.status(500).send(err);
   }
+};
+
+export const createUser = async (
+  request: IGenerateUserAvatarRequest,
+  response: Response
+) => {
+  if (!request.body) {
+    return response.status(400).json({ error: "Missing request body" });
+  }
+
+  const { name, image } = request.body;
+
+  if (!stringFieldValid(name)) {
+    return response.status(400).json({ error: "Invalid user name" });
+  }
+
+  if (!stringFieldValid(image)) {
+    return response.status(400).json({ error: "Invalid user image" });
+  }
+
+  return createUserUseCase()
+    .execute(name, image)
+    .then((userId) => response.status(200).json({ userId }))
+    .catch((err) => response.status(500).json({ error: err.message }));
+};
+
+const stringFieldValid = (value: any): boolean => {
+  return value && typeof value === "string" && value.trim().length > 0;
 };
