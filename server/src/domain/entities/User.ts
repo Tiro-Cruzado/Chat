@@ -1,11 +1,11 @@
 import { v4 as uuidV4 } from "uuid";
 
 class User {
-  id?: string;
+  id: string;
   name: string;
 
-  constructor() {
-    !this.id && (this.id = uuidV4());
+  constructor(id?: string) {
+    this.id = id || uuidV4();
   }
 }
 
