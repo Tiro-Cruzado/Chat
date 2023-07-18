@@ -8,9 +8,10 @@ const createApp = () => {
 
   if (useCors) app.use(cors());
 
+  app.use(express.json());
   app.use("/", mainRouter);
 
   return app;
-}
+};
 
 export default createApp;
