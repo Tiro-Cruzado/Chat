@@ -6,14 +6,20 @@ jobs:
   tsc-lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v3
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
         with:
           node-version: 16.20.1
 
-      - run: cd client
-      - run: npm install -g yarn
-      - run: yarn install
+      - name: Install yarn
+        run: npm install -g yarn
 
-      - run: yarn tsc
-      - run: yarn eslint .
+      - name: Run Validation
+        run: |
+          cd client
+          yarn install
+          yarn tsc
+          yarn eslint .
