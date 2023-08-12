@@ -1,9 +1,30 @@
-name: Validation Client
+name: Validation
 
 on: [push]
 
 jobs:
-  tsc-lint:
+  validation-server:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16.20.1
+
+      - name: Install yarn
+        run: npm install -g yarn
+
+      - name: Run Validation
+        run: |
+          cd server
+          yarn install
+          yarn tsc
+          yarn eslint .
+
+  validation-client:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
