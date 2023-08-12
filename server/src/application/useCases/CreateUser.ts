@@ -9,10 +9,8 @@ class CreateUser {
   }
 
   execute = async (userName: string, image: string): Promise<string> => {
-    const user = new User();
-    user.name = userName;
-    user.image = image;
-
+    const user = new User(userName, image);
+    
     this.usersRepository.addUser(user);
 
     return user.id;

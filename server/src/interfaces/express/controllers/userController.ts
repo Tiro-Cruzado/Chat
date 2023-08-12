@@ -11,8 +11,15 @@ interface IGenerateUserAvatarRequest extends Request {
   };
 }
 
+interface ICreateUserAvatarRequest extends Request {
+  query: {
+    name: string;
+    image: string;
+  };
+}
+
 export const generateUserAvatar = async (
-  request: IGenerateUserAvatarRequest,
+  request: ICreateUserAvatarRequest,
   response: Response
 ) => {
   const gernerateUserAvatar: IGenerateUserAvatar =
@@ -65,6 +72,6 @@ export const createUser = async (
     .catch((err) => response.status(500).json({ error: err.message }));
 };
 
-const stringFieldValid = (value: any): boolean => {
-  return value && typeof value === "string" && value.trim().length > 0;
+const stringFieldValid = (value: string): boolean => {
+  return (value || "").trim().length > 0;
 };

@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+
 import { Server, Socket } from 'socket.io';
 
 import { ChatRoomRepository } from '../../infrasctructure/repositories/implementations/ChatRoomRepository';
@@ -31,8 +33,8 @@ class ChatSocket {
 
   private setUpHandlers() {
     this.on('createChatRoom', createChatRoomHandler(this.chatRoomRepository));
-    this.on('joinChatRoom', joinChatRoomHandler(this.io))
-    this.on('sendChatMessage', sendChatMessageHandler(this.io, this.chatRoomRepository));
+    this.on('joinChatRoom', joinChatRoomHandler())
+    this.on('sendChatMessage', sendChatMessageHandler(this.chatRoomRepository));
   }
 
   init() {
@@ -42,7 +44,7 @@ class ChatSocket {
       console.log('A user connected:', socket.id);
 
       this.eventHandlers.forEach((handlers, event) => {
-        socket.on(event, async (...args: any[]) => {
+        socket.on(event, async (...args) => {
           for (const handler of handlers) {
             await handler(socket, ...args);
           }

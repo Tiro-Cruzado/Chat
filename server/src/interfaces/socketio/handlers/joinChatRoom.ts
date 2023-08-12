@@ -1,9 +1,9 @@
-import { Server, Socket } from "socket.io"
+import { Socket } from "socket.io"
 
 import { JoinChatRoom } from "../../../application/useCases/JoinChatRoom"
 import { ChatRoomRepository } from "../../../infrasctructure/repositories/implementations/ChatRoomRepository"
 
-export const joinChatRoomHandler = (io: Server) => (
+export const joinChatRoomHandler = () => (
   async (socket: Socket, userId: string, chatRoomId: string) => {
     if (!userId || !chatRoomId) {
       socket.emit("error", 'Please enter user ID and chat room ID')

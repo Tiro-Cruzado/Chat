@@ -1,9 +1,9 @@
-import { Server, Socket } from "socket.io"
+import { Socket } from "socket.io"
 
 import { SendChatMessage } from "../../../application/useCases/SendChatMessage"
 import { ChatRoomRepository } from "../../../infrasctructure/repositories/implementations/ChatRoomRepository"
 
-export const sendChatMessageHandler = (io: Server, chatRoomRepository: ChatRoomRepository) => (
+export const sendChatMessageHandler = (chatRoomRepository: ChatRoomRepository) => (
   async (socket: Socket, userId: string, chatRoomId: string, message: string) => {
     if (!chatRoomId) {
       socket.emit('error', 'Please enter chat room identifier')
